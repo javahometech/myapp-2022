@@ -5,8 +5,10 @@ pipeline{
     }
     stages{
         stage("Maven Build"){
-            when {
-                branch "develop"
+            when { 
+                anyOf { 
+                    branch 'master'; branch 'feature*' 
+                } 
             }
             steps{
                sh "mvn package"
