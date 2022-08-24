@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    triggers {
-      pollSCM '* * * * *'
-    }
     stages{
         stage("Maven Build"){
             when {
@@ -12,28 +9,20 @@ pipeline{
                sh "mvn package"
             }
         }
-        stage("SonarQube"){
+       stage("Deploy To dev"){
             when {
                 branch "develop"
             }
             steps{
-               echo "sonarqube analysis...."
+               echo "deploying to development server...."
             }
         }
-        stage("Nexus"){
-            when {
-                branch "develop"
-            }
-            steps{
-               echo "uploading artifacts to nexus...."
-            }
-        }
-        stage("Deploy To QA"){
+        stage("Deploy To Test"){
             when {
                 branch "qa"
             }
             steps{
-               echo "deploying to qa server...."
+               echo "deploying to test server...."
             }
         }
         stage("Deploy To production"){
