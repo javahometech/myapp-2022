@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    triggers {
-      pollSCM '* * * * *'
-    }
     stages{
         stage("Maven Build"){
             when {
@@ -14,7 +11,7 @@ pipeline{
         }
         stage("SonarQube Analysis"){
             when {
-                branch "develop"
+                branch "qa"
             }
             steps{
                withSonarQubeEnv('sonar7') {
