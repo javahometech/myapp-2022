@@ -7,7 +7,6 @@
 	<version>0.0.6</version>
 	<name>my-app</name>
 	<url>http://maven.apache.org</url>
-
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
