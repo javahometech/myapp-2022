@@ -1,8 +1,1 @@
-pipeline {
-    agent any
-    stages{
-        stage("Demo"){
-            echo " Jenkins"
-        }
-    }
-}
+https://github.com/sivagopikatari/myapp-2022.git
